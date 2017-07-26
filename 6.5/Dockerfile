@@ -51,6 +51,7 @@ COPY scripts /opt/docker-solr/scripts
 RUN chown -R $SOLR_USER:$SOLR_USER /opt/docker-solr
 
 ENV PATH /opt/solr/bin:/opt/docker-solr/scripts:$PATH
+RUN export PATH=$PATH:/opt/solr/bin:/opt/docker-solr/scripts
 
 COPY ./config /tmp/solr-drupal-config
 
