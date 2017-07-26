@@ -57,6 +57,7 @@ COPY scripts /opt/docker-solr/scripts
 RUN chown -R $SOLR_USER:$SOLR_USER /opt/docker-solr
 
 ENV PATH /opt/solr/bin:/opt/docker-solr/scripts:$PATH
+RUN chmod +x /opt/docker-solr/scripts/docker-entrypoint.sh
 
 COPY ./config /tmp/solr-drupal-config
 
@@ -72,5 +73,5 @@ EXPOSE 8983
 WORKDIR /opt/solr
 USER $SOLR_USER
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/opt/docker-solr/scripts/docker-entrypoint.sh"]
 CMD ["solr-foreground"]
