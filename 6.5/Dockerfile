@@ -2,8 +2,6 @@ FROM    openjdk:8-jre
 
 ARG SOLR_DOWNLOAD_SERVER
 
-ARG GPG_KEYSERVER
-
 RUN apt-get update && \
   apt-get -y install lsof && \
   rm -rf /var/lib/apt/lists/*
@@ -12,15 +10,11 @@ ENV SOLR_USER solr
 ENV SOLR_UID 8983
 
 RUN groupadd -r -g $SOLR_UID $SOLR_USER && \
-  useradd -r -u $SOLR_UID -g $SOLR_USER $SOLR_USER
-
-ENV SOLR_KEY 478EEF7066AD843EC4812769707B7D9F6FDB8105
-ENV GPG_KEYSERVER ${GPG_KEYSERVER:-hkp://ha.pool.sks-keyservers.net}
-RUN gpg --keyserver "$GPG_KEYSERVER" --recv-keys "$SOLR_KEY"
+  useradd -r -u $SOLR_UID -G $SOLR_USER -g $SOLR_USER $SOLR_USER
 
 ENV SOLR_VERSION 6.5.1
-ENV SOLR_SHA256 7c6a7d4474d5e847a8ddd0a4717d33bf5db07adf17c3d36ad1532c72885bd5d3
 ENV SOLR_URL ${SOLR_DOWNLOAD_SERVER:-https://archive.apache.org/dist/lucene/solr}/$SOLR_VERSION/solr-$SOLR_VERSION.tgz
+ENV SOLR_SHA256 7c6a7d4474d5e847a8ddd0a4717d33bf5db07adf17c3d36ad1532c72885bd5d3
 ENV SOLR_KEYS 052C5B48A480B9CEA9E218A5F98C13CFA5A135D8
 
 RUN set -e; for key in $SOLR_KEYS; do \
@@ -54,7 +48,6 @@ RUN mkdir -p /opt/solr && \
   mkdir /docker-entrypoint-initdb.d /opt/docker-solr/
 
 COPY scripts /opt/docker-solr/scripts
-RUN chmod 755 /opt/docker-solr/scripts/docker-entrypoint.sh && chmod +x /opt/docker-solr/scripts/docker-entrypoint.sh
 RUN chown -R $SOLR_USER:$SOLR_USER /opt/docker-solr
 
 ENV PATH /opt/solr/bin:/opt/docker-solr/scripts:$PATH
@@ -73,5 +66,5 @@ EXPOSE 8983
 WORKDIR /opt/solr
 USER $SOLR_USER
 
-ENTRYPOINT ["/opt/docker-solr/scripts/docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["solr-foreground"]
