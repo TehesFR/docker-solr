@@ -62,6 +62,7 @@ COPY ./core.properties /tmp/core.properties
 RUN cp -f /tmp/core.properties /opt/solr/server/solr/collection1/core.properties
 RUN chown -R solr:solr /opt/solr/server/solr
 RUN chmod +x /opt/docker-solr/scripts/docker-entrypoint.sh
+RUN chmod +x /opt/docker-solr/scripts/solr-foreground
 
 EXPOSE 8983
 WORKDIR /opt/solr
