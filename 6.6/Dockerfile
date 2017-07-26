@@ -21,6 +21,22 @@ RUN gpg --keyserver "$GPG_KEYSERVER" --recv-keys "$SOLR_KEY"
 ENV SOLR_VERSION 6.6.0
 ENV SOLR_SHA256 6b1d1ed0b74aef320633b40a38a790477e00d75b56b9cdc578533235315ffa1e
 ENV SOLR_URL ${SOLR_DOWNLOAD_SERVER:-https://archive.apache.org/dist/lucene/solr}/$SOLR_VERSION/solr-$SOLR_VERSION.tgz
+ENV SOLR_KEYS 2085660D9C1FCCACC4A479A3BF160FF14992A24C
+
+RUN set -e; for key in $SOLR_KEYS; do \
+    found=''; \
+    for server in \
+      ha.pool.sks-keyservers.net \
+      hkp://keyserver.ubuntu.com:80 \
+      hkp://p80.pool.sks-keyservers.net:80 \
+      pgp.mit.edu \
+    ; do \
+      echo "  trying $server for $key"; \
+      gpg --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$key" && found=yes && break; \
+    done; \
+    test -z "$found" && echo >&2 "error: failed to fetch $key from several disparate servers -- network issues?" && exit 1; \
+  done; \
+  exit 0
 
 RUN mkdir -p /opt/solr && \
   wget -nv $SOLR_URL -O /opt/solr.tgz && \
