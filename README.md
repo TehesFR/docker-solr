@@ -3,7 +3,9 @@
 **Drupal** optimized image for solr, based on makuk66 work, with search-api solr config files.
 
 Available tags are:
-- 6.4, latest ([6.4/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.4/Dockerfile))
+- 6.6, latest ([6.6/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.6/Dockerfile))
+- 6.5 ([6.5/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.5/Dockerfile))
+- 6.4 ([6.4/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.4/Dockerfile))
 - 6.3 ([6.3/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.3/Dockerfile))
 - 6.2 ([6.2/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.2/Dockerfile))
 - 6.1 ([6.1/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.1/Dockerfile))
