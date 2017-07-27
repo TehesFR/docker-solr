@@ -27,12 +27,12 @@ Please check a complete docker-compose.yml example at: https://github.com/TehesF
 
 # Docker only
 
-If you whant to use a standalone docker image use the following command : 
+If you want to use a standalone docker image, use the following command : 
 
 ```
 docker run -itd -p 8080:8983 tehes/docker-solr:tag
 ```
-Don't forget to change **tag** by the SolR version you want to use. For SolR 4.10, the command would be : 
+Don't forget to change **tag** by the SolR version you want to use. For SolR 4.10, the command will be : 
 
 ```
 docker run -itd -p 8080:8983 tehes/docker-solr:4.10
