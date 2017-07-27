@@ -24,3 +24,16 @@ Available tags are:
 Please check a complete docker-compose.yml example at: https://github.com/TehesFR/docker-apache-php
 
 [Docker Hub page](https://hub.docker.com/r/tehes/docker-solr/)
+
+# Docker only
+
+If you whant to use a standalone docker image use the following command : 
+
+```
+docker run -itd -p 8080:8983 tehes/docker-solr:tag
+```
+Don't forget to change **tag** by the SolR version you want to use. For SolR 4.10, the command would be : 
+
+```
+docker run -itd -p 8080:8983 tehes/docker-solr:4.10
+```
