@@ -1,7 +1,9 @@
 # About this repo
 
 **Solr** images for dev/prod (based on makuk66 work)
+
 **Drupal** optimized with search-api Solr config files for 3.x, 4.x, 5.x, and 6.x.
+
 The 7.x and later does not include search-api Solr config files anymore and are just a fork from makuk66.
 
 Available tags are:
