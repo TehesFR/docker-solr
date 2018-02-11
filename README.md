@@ -1,9 +1,12 @@
 # About this repo
 
-**Drupal** optimized image for solr, based on makuk66 work, with search-api solr config files.
+**Drupal** optimized image for Solr (based on makuk66 work) with search-api Solr config files for 3.x, 4.x, 5.x, and 6.x.
+7.x does not include search-api Solr config files anymore and are just a fork from makuk66.
 
 Available tags are:
-- 6.6, latest ([6.6/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.6/Dockerfile))
+- 7.2, latest ([7.2/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/7.2/Dockerfile))
+- 7.1 ([7.1/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/7.1/Dockerfile))
+- 6.6 ([6.6/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.6/Dockerfile))
 - 6.5 ([6.5/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.5/Dockerfile))
 - 6.4 ([6.4/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.4/Dockerfile))
 - 6.3 ([6.3/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.3/Dockerfile))
@@ -36,4 +39,12 @@ Don't forget to change **tag** by the SolR version you want to use. For SolR 4.1
 
 ```
 docker run -itd -p 8080:8983 tehes/docker-solr:4.10
+```
+
+# Create a new core
+
+To create a new Solr core, run this command in your Docker container
+
+```
+bin/solr create_core -c myCore -p 8983
 ```
