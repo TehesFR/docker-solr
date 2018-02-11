@@ -1,7 +1,8 @@
 # About this repo
 
-**Drupal** optimized image for Solr (based on makuk66 work) with search-api Solr config files for 3.x, 4.x, 5.x, and 6.x.
-7.x does not include search-api Solr config files anymore and are just a fork from makuk66.
+**Solr** images for dev/prod (based on makuk66 work)
+**Drupal** optimized with search-api Solr config files for 3.x, 4.x, 5.x, and 6.x.
+The 7.x and later does not include search-api Solr config files anymore and are just a fork from makuk66.
 
 Available tags are:
 - 7.2, latest ([7.2/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/7.2/Dockerfile))
