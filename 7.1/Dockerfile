@@ -1,6 +1,5 @@
 
 FROM    openjdk:8-jre
-MAINTAINER  Martijn Koster "mak-docker@greenhills.co.uk"
 
 # Override the solr download location with e.g.:
 #   docker build -t mine --build-arg SOLR_DOWNLOAD_SERVER=http://www-eu.apache.org/dist/lucene/solr .
