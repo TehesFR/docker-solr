@@ -7,7 +7,10 @@
 The 7.x and later does not include search-api Solr config files anymore and are just a fork from makuk66.
 
 Available tags are:
-- 7.2, latest ([7.2/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/7.2/Dockerfile))
+- 7.5, latest ([7.5/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/7.5/Dockerfile))
+- 7.4 ([7.4/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/7.4/Dockerfile))
+- 7.3 ([7.3/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/7.3/Dockerfile))
+- 7.2 ([7.2/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/7.2/Dockerfile))
 - 7.1 ([7.1/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/7.1/Dockerfile))
 - 6.6 ([6.6/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.6/Dockerfile))
 - 6.5 ([6.5/Dockerfile](https://github.com/TehesFR/docker-solr/tree/master/6.5/Dockerfile))
